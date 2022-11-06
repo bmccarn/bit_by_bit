@@ -1,0 +1,4 @@
+venv/
+.vscode*
+.idea/
+_paycache_

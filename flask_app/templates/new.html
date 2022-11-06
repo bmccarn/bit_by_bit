@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="UNCC Notes App">
+        <title>TaskMaster - New Task</title>
+        <!-- styles -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+    <body>
+       <nav>
+           <!--  add navigation links -->
+
+       </nav>
+
+        <h1>Hello {{user.name}}, to TaskMaster!</h1>
+    {% if note %}
+       <form action="{{ url_for('update_note', note_id=note.id) }}" method="POST">
+    {% else %}
+        <form action="new" method="post">
+    {% endif %}
+            <p><label>Task Title</label></p> 
+            <input type="text" name="title" value="{% if note %}{{note.title}} {% endif %}"/></p>
+            <p><label>Task Description </label></p>
+            <p>
+                <textarea name="noteText"  rows="6" cols="0" >
+                    {% if note %}
+                        {{note.text}}
+                    {% else %}
+                        Create task here ...
+                    {% endif %}
+                </textarea>
+            </p>
+            <p>
+                {% if note %}
+                    <input type="submit" value="Update Task"/>
+                {% else %}
+                    <input type="submit" value="Add Task"/>
+                {% endif %}
+            </p>
+        </form>
+    </body>
+</html>

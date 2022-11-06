@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <nav> 
+        <a href="{{ url_for('get_notes') }}"> Tasks </a> ||
+        <a href="{{ url_for('index') }}"> Home </a> ||
+        <a href="{{ url_for('new_note') }}"> Add Task </a>
+    </nav>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="TaskMaster Task App">
+        <title>TaskMaster Task App</title>
+        <!-- styles -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+    <body>
+
+        <h1>Hello {{user.name}}, to TaskMaster!</h1>
+
+        <h2>Here you can manage all your tasks!</h2>
+
+        <h3>Open Tasks</h3>
+
+        <h3>To Do</h3>
+
+        <h3>Task Management</h3>
+
+    </body>
+</html>

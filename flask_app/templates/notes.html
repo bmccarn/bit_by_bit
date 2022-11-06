@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <nav> 
+            <a href="{{ url_for('get_notes') }}"> My Tasks </a> ||
+            <a href="{{ url_for('index') }}"> Home </a> ||
+            <a href="{{ url_for('new_note') }}"> Add Task </a>
+        </nav>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="TaskMaster">
+        <title>TaskMaster - View Your Tasks</title>
+        <!-- styles -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+    
+    <body>
+        <h1>Hello {{user.name}}, to TaskMaster!</h1>
+        <h1>Listing Tasks</h1>
+
+        
+
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Date</th>
+            </tr>
+            {% for note in notes %}
+            <tr>
+                <td><a href="{{ url_for('get_note', note_id=note.id) }}">{{ note.title }}</a></td>
+                <td>{{ note.date }}</td>
+                <td><a href="{{ url_for('update_note', note_id=note.id) }}">Edit</a></td>
+                <td>
+                    <form action="{{ url_for('delete_note', note_id=note.id) }}" method="POST">
+                        <input type="submit" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
