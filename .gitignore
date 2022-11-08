@@ -1,4 +1,5 @@
 venv/
 .vscode*
 .idea/
-_paycache_
+__pycache__
+.DS_Store
