@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <nav> 
-        <a href="{{ url_for('get_notes') }}"> Tasks </a> ||
-        <a href="{{ url_for('index') }}"> Home </a> ||
-        <a href="{{ url_for('new_note') }}"> Add Task </a>
-    </nav>
+  
 
     <head>
         <meta charset="utf-8">
@@ -15,6 +11,11 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     </head>
     <body>
+        <nav> 
+            <a href="{{ url_for('get_notes') }}"> Tasks </a> ||
+            <a href="{{ url_for('index') }}"> Home </a> ||
+            <a href="{{ url_for('new_note') }}"> Add Task </a>
+        </nav>
 
         <h1>Hello {{user.name}}, to TaskMaster!</h1>
 

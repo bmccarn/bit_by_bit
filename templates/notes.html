@@ -2,11 +2,7 @@
 <html lang="en">
     
     <head>
-        <nav> 
-            <a href="{{ url_for('get_notes') }}"> My Tasks </a> ||
-            <a href="{{ url_for('index') }}"> Home </a> ||
-            <a href="{{ url_for('new_note') }}"> Add Task </a>
-        </nav>
+        
         
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +13,12 @@
     </head>
     
     <body>
+        <nav> 
+            <a href="{{ url_for('get_notes') }}"> My Tasks </a> ||
+            <a href="{{ url_for('index') }}"> Home </a> ||
+            <a href="{{ url_for('new_note') }}"> Add Task </a>
+        </nav>
+        
         <h1>Hello {{user.name}}, to TaskMaster!</h1>
         <h1>Listing Tasks</h1>
 
