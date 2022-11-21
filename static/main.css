@@ -1,17 +1,10 @@
 body {
     padding: 30px 30px;
+    }
+h1{
+    color:green;
 }
-
-h1 {
-    color: blue;
-    text-align: center;
-}
-
-h2 {
-    color: white;
-    background: blue;
-}
-
-nav {
-    text-align: center;
+h2{
+    color:gold;
+    background:green;
 }

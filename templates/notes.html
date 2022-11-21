@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    
     <head>
-        
-        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="TaskMaster">
-        <title>TaskMaster - View Your Tasks</title>
+        <meta name="description" content="UNCC Notes App">
+        <title>UNCC Notes App - View your Notes</title>
         <!-- styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     </head>
-    
     <body>
-        <nav> 
-            <a href="{{ url_for('get_notes') }}"> My Tasks </a> ||
-            <a href="{{ url_for('index') }}"> Home </a> ||
-            <a href="{{ url_for('new_note') }}"> Add Task </a>
+        <nav>
+            <a href="{{ url_for('index')}}"> Home</a> ||
+            <a href="{{ url_for('get_notes') }}">My Notes</a> ||
+            <a href="{{ url_for('new_note') }}">Add Note</a> ||
+            <a href="{{ url_for('logout') }}">Logout</a>
         </nav>
-        
-        <h1>Hello {{user.name}}, to TaskMaster!</h1>
-        <h1>Listing Tasks</h1>
 
-        
+        <h1>Welcome {{user.name}} to the 49er Notes App!</h1>
+
+        <h1>Listing notes</h1>
 
         <table>
             <tr>
@@ -35,8 +31,8 @@
                 <td>{{ note.date }}</td>
                 <td><a href="{{ url_for('update_note', note_id=note.id) }}">Edit</a></td>
                 <td>
-                    <form action="{{ url_for('delete_note', note_id=note.id) }}" method="POST">
-                        <input type="submit" value="Delete"/>
+                    <form action="{{ url_for('delete_note', note_id=note.id) }}" method="post">
+                        <input type="submit" value="Delete">
                     </form>
                 </td>
             </tr>

@@ -4,39 +4,42 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="UNCC Notes App">
-        <title>TaskMaster - New Task</title>
+        <title>UNCC Notes App - New Note</title>
         <!-- styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     </head>
     <body>
-       <nav>
-           <!--  add navigation links -->
+        <nav>
+            <a href="{{ url_for('index')}}"> Home</a> ||
+            <a href="{{ url_for('get_notes') }}">My Notes</a> ||
+            <a href="{{ url_for('new_note') }}">Add Note</a> ||
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
 
-       </nav>
 
-        <h1>Hello {{user.name}}, to TaskMaster!</h1>
-    {% if note %}
-       <form action="{{ url_for('update_note', note_id=note.id) }}" method="POST">
-    {% else %}
+        <h1>Welcome {{user}} to the 49er Notes App!</h1>
+        {% if note %}
+            <form action="{{ url_for('update_note', note_id=note.id) }}" method="post">
+        {% else %}
         <form action="new" method="post">
-    {% endif %}
-            <p><label>Task Title</label></p> 
-            <input type="text" name="title" value="{% if note %}{{note.title}} {% endif %}"/></p>
-            <p><label>Task Description </label></p>
+        {% endif %}
+           <p><label>Title </label></p>
+           <p>  <input type="text" name="title" value="{% if note %}{{note.title}} {% endif %}"/></p>
+            <p><label>Note </label></p>
             <p>
-                <textarea name="noteText"  rows="6" cols="0" >
+                <textarea name="noteText"  rows="6" cols="0">
                     {% if note %}
                         {{note.text}}
                     {% else %}
-                        Create task here ...
+                        Add your new note here ...
                     {% endif %}
                 </textarea>
             </p>
             <p>
                 {% if note %}
-                    <input type="submit" value="Update Task"/>
+                    <input type="submit" value="Update Note"/>
                 {% else %}
-                    <input type="submit" value="Add Task"/>
+                    <input type="submit" value="Add Note"/>
                 {% endif %}
             </p>
         </form>
