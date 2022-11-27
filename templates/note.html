@@ -12,47 +12,53 @@
     />
   </head>
   <body>
-    <nav>
-      <a href="{{ url_for('index')}}"> Home</a> ||
-      <a href="{{ url_for('get_notes') }}">My Notes</a> ||
-      <a href="{{ url_for('new_note') }}">Add Note</a> ||
-      <a href="{{ url_for('logout') }}">Logout</a>
-    </nav>
+    <header id="navbar">
+      <nav>
+          <a href="{{ url_for('index')}}"> Home</a> 
+          <a href="{{ url_for('get_notes') }}">My Notes</a> 
+          <a href="{{ url_for('new_note') }}">Add Note</a> 
+          <a href="{{ url_for('logout') }}">Logout</a>
+      </nav>
+  </header>
 
-    <h1>Welcome {{user}} to the 49er Notes App!</h1>
+    <section id="content">
+      <br>
 
-    <h1>Note detials</h1>
+        <h1>Welcome {{user}} to the 49er Notes App!</h1>
 
-    <table>
-      <tr>
-        <th>Title</th>
-        <th>Text</th>
-        <th>Date</th>
-      </tr>
-      <tr>
-        <td>{{ note.title }}</td>
-        <td>{{ note.text }}</td>
-        <td>{{ note.date }}</td>
-      </tr>
-    </table>
+        <h1>Note detials</h1>
 
-    {% if note.comments %} {% if note.comments|length > 0 %}
-    <h2>Comments</h2>
-    <ul>
-      {% for comment in note.comments %}
-      <li>{{ comment.content }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %} {% endif %}
-    <form action="{{ url_for('new_comment', note_id=note.id) }}" method="post">
-      <div class="formwrapper">
-        <h2 class="title">Add a comment</h2>
-        <div class="form-field">
-          {{ form.comment.label }} <br />
-          {{ form.comment }}
-        </div>
-        {{ form.submit }}
-      </div>
-    </form>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Text</th>
+            <th>Date</th>
+          </tr>
+          <tr>
+            <td>{{ note.title }}</td>
+            <td>{{ note.text }}</td>
+            <td>{{ note.date }}</td>
+          </tr>
+        </table>
+
+        {% if note.comments %} {% if note.comments|length > 0 %}
+        <h2>Comments</h2>
+        <ul>
+          {% for comment in note.comments %}
+          <li>{{ comment.content }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %} {% endif %}
+        <form action="{{ url_for('new_comment', note_id=note.id) }}" method="post">
+          <div class="formwrapper">
+            <h2 class="title">Add a comment</h2>
+            <div class="form-field">
+              {{ form.comment.label }} <br />
+              {{ form.comment }}
+            </div>
+            {{ form.submit }}
+          </div>
+        </form>
+    </section>
   </body>
 </html>
