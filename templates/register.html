@@ -31,9 +31,11 @@
 
     <section id="content">
       <br>
-      <h1>Welcome {{user}} to TaskMaster!</h1>
 
-      <h2>The Lightweight Task-Tracking Software!</h2>
+      <h1>Welcome to the Task Manager App {% if user %}{{user}}{% endif %}!</h1>
+
+      <h2>Use this site to maintain and organize your notes.</h2>
+      
       <div class="formwrapper">
         <h2 class="title">Register</h2>
         <form method="POST" action="/register">
