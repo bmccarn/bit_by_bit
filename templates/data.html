@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="UNCC Notes App" />
+    <title>UNCC Notes App</title>
+    <!-- styles -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='main.css') }}"
+    />
+  </head>
+ 
+    <header id="navbar">
+        <nav>
+            <a href="{{ url_for('index')}}"> Home</a> 
+            <a href="{{ url_for('get_notes') }}">Current Tasks</a> 
+            <a href="{{ url_for('new_note') }}">Create Task</a>
+            <a href="{{ url_for('form') }}">Bug Report</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+  </header> 
+
+  <br>
+  <br>
+  <br>
+
+{% for key,value in form_data.items() %}
+<h2> {{key}}</h2>
+<p> {{value}}</p>
+{% endfor %}
+
+<h1>Thank you {{user}} for your efforts to improve TaskMaster!</h1>

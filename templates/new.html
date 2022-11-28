@@ -12,8 +12,9 @@
         <header id="navbar">
             <nav>
                 <a href="{{ url_for('index')}}"> Home</a> 
-                <a href="{{ url_for('get_notes') }}">My Notes</a> 
-                <a href="{{ url_for('new_note') }}">Add Note</a> 
+                <a href="{{ url_for('get_notes') }}">Current Tasks</a> 
+                <a href="{{ url_for('new_note') }}">Create Task</a>
+                <a href="{{ url_for('form') }}">Bug Report</a>
                 <a href="{{ url_for('logout') }}">Logout</a>
             </nav>
         </header>
@@ -21,7 +22,8 @@
         <section id="content">
             <br>
 
-            <h1>Welcome {{user}} to the 49er Notes App!</h1>
+            <h1>Welcome {{user}} to TaskMaster!</h1>
+
             {% if note %}
                 <form action="{{ url_for('update_note', note_id=note.id) }}" method="post">
             {% else %}
@@ -35,7 +37,7 @@
                         {% if note %}
                             {{note.text}}
                         {% else %}
-                            Add your new note here ...
+                            Please enter task details here...
                         {% endif %}
                     </textarea>
                 </p>

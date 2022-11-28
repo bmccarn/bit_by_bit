@@ -45,3 +45,16 @@ class Comment(db.Model):
         self.content = content
         self.note_id = note_id
         self.user_id = user_id
+
+class Complaint(db.Model):
+    id = db.Column("id", db.Integer, primary_key=True)
+    title = db.Column("title", db.String(200))
+    text = db.Column("text", db.String(100))
+    date = db.Column("date", db.String(50))
+    # can create a foreign key; referencing the id variable in the User class, so that is why it is lowercase u
+       
+    def __init__(self, title, text, date, user_id):
+        self.title = title
+        self.text = text
+        self.date = date
+        self.user_id = user_id

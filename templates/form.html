@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="UNCC Notes App" />
+    <title>UNCC Notes App</title>
+    <!-- styles -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='main.css') }}"
+    />
+  </head>
+ 
+    <header id="navbar">
+      <nav>
+        <nav>
+          <a href="{{ url_for('index')}}"> Home</a> 
+          <a href="{{ url_for('get_notes') }}">Current Tasks</a> 
+          <a href="{{ url_for('new_note') }}">Create Task</a>
+          <a href="{{ url_for('form') }}">Bug Report</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
+      </nav>
+  </header> 
+
+  <br>
+  <br>
+  <br>
+
+  <body>
+
+  <form action="/data" method = "POST">
+    <p>Summary <input type = "text" name = "Quick Summary" /></p>
+    <p>Details <input type = "text" name = "Details (optional)" /></p>
+    <p>Contact Info <input type = "text" name = "Contact Information" /></p>
+    <p><input type = "submit" value = "Submit" /></p>
+</form>
+
+</body>

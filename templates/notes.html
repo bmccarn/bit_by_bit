@@ -12,8 +12,9 @@
         <header id="navbar">
             <nav>
                 <a href="{{ url_for('index')}}"> Home</a> 
-                <a href="{{ url_for('get_notes') }}">My Notes</a> 
-                <a href="{{ url_for('new_note') }}">Add Note</a> 
+                <a href="{{ url_for('get_notes') }}">Current Tasks</a> 
+                <a href="{{ url_for('new_note') }}">Create Task</a>
+                <a href="{{ url_for('form') }}">Bug Report</a>
                 <a href="{{ url_for('logout') }}">Logout</a>
             </nav>
         </header>
@@ -21,9 +22,9 @@
         <section id="content">
             <br>
 
-            <h1>Welcome {{user.name}} to the 49er Notes App!</h1>
+            <h1>Welcome {{user}} to TaskMaster!</h1>
 
-            <h1>Listing notes</h1>
+            <h1>Current Tasks</h1>
 
             <table>
                 <tr>

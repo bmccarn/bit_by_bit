@@ -10,8 +10,9 @@ from flask import redirect, url_for
 from database import db
 from models import Note as Note 
 from models import User as User
-from forms import RegisterForm, LoginForm, CommentForm
+from forms import RegisterForm, LoginForm, CommentForm, ComplaintForm
 from models import Comment as Comment
+from models import Complaint as Complaint
 
 app = Flask(__name__)     # create an app
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flask_note_app.db'
@@ -213,6 +214,33 @@ def new_comment(note_id):
 
     else:
         return redirect(url_for('login'))
+
+@app.route('/form')
+def form():
+    if session.get('user'):
+        complaint_form = ComplaintForm()
+        # validate_on_submit only validates using POST
+        if complaint_form.validate_on_submit():
+            # get comment data
+            comment_text = request.form['comment']
+            new_record = Complaint(comment_text, session['user_id'])
+            db.session.add(new_record)
+            db.session.commit()
+
+        return render_template('form.html')
+
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/data/', methods = ['POST', 'GET'])
+def data():
+    if request.method == 'GET':
+        return f"The URL /data is accessed directly. Try going to '/form' to submit form"
+    if request.method == 'POST':
+        form_data = request.form
+        return render_template('data.html',form_data = form_data)
+
+
 
 app.run(host=os.getenv('IP', '127.0.0.1'), port=int(
     os.getenv('PORT', 5000)), debug=True)

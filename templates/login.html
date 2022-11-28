@@ -9,8 +9,9 @@
         <header id="navbar">
             <nav>
               <a href="{{ url_for('index')}}"> Home</a>
-              <a href="{{ url_for('get_notes') }}">My Notes</a>
-              <a href="{{ url_for('new_note') }}">Add Note</a>
+              <a href="{{ url_for('get_notes') }}">Current Tasks</a>
+              <a href="{{ url_for('new_note') }}">Create Task</a>
+              <a href="{{ url_for('form') }}">Bug Report</a>
             </nav>
       
             {% if user %}
@@ -28,9 +29,9 @@
         <section id="content">
             <br>
         
-            <h1>Welcome {% if user %}{{user}}{% endif %}to the 49er Notes App!</h1>
+            <h1>Welcome {{user}} to TaskMaster!</h1>
 
-            <h2>Use this site to maintain and organize your notes.</h2>
+            <h2>The Lightweight Task-Tracking Software!</h2>
             <div class="formwrapper">
                 <h2 class="title">Login</h2>
                 <form method="POST" action="/login">
