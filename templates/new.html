@@ -21,7 +21,7 @@
         <section id="content">
             <br>
 
-            <h1>Welcome {{user}} to the 49er Notes App!</h1>
+            <h1>Welcome to the Task Manager App {{user}}!</h1>
             {% if note %}
                 <form action="{{ url_for('update_note', note_id=note.id) }}" method="post">
             {% else %}
