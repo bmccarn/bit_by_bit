@@ -7,6 +7,7 @@ from flask import Flask   # Flask is the web app that we will customize
 from flask import render_template
 from flask import request, session
 from flask import redirect, url_for
+from flask import make_response
 from database import db
 from models import Note as Note 
 from models import User as User
@@ -239,6 +240,18 @@ def data():
     if request.method == 'POST':
         form_data = request.form
         return render_template('data.html',form_data = form_data)
+
+@app.route("/elements")
+def elements():
+    return render_template("elements.html")
+
+@app.route("/set")
+@app.route("/set/<theme>")
+def set_theme(theme="light"):
+    res = make_response(redirect(url_for("index")))
+    res.set_cookie("theme", theme)
+    return res
+
 
 
 
