@@ -241,16 +241,17 @@ def data():
         form_data = request.form
         return render_template('data.html',form_data = form_data)
 
-@app.route("/elements")
-def elements():
-    return render_template("elements.html")
+@app.route('/users')
+def get_users():
+    # check if a user is saved in session
+    if session.get('user'):
+        # retrieve users from database
+        users = db.session.query(User).all()
+        # render users.html template
 
-@app.route("/set")
-@app.route("/set/<theme>")
-def set_theme(theme="light"):
-    res = make_response(redirect(url_for("index")))
-    res.set_cookie("theme", theme)
-    return res
+        return render_template('users.html', users=users)
+    else:
+        return redirect(url_for('login'))
 
 
 

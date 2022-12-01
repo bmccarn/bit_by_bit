@@ -17,34 +17,38 @@
                 <a href="{{ url_for('form') }}">Bug Report</a>
                 <a href="{{ url_for('get_users') }}">Users</a>
                 <a href="{{ url_for('logout') }}">Logout</a>
+                
             </nav>
         </header>
+
+       
 
         <section id="content">
             <br>
 
             <h1>Welcome to the Task Manager App {{user}}!</h1>
 
-            <h1>Current Tasks</h1>
-
             <table>
                 <tr>
-                    <th>Title</th>
-                    <th>Date</th>
-                </tr>
-                {% for note in notes %}
-                <tr>
-                    <td><a href="{{ url_for('get_note', note_id=note.id) }}">{{ note.title }}</a></td>
-                    <td>{{ note.date }}</td>
-                    <td><a href="{{ url_for('update_note', note_id=note.id) }}">Edit</a></td>
-                    <td>
-                        <form action="{{ url_for('delete_note', note_id=note.id) }}" method="post">
-                            <input type="submit" value="Delete">
-                        </form>
-                    </td>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Registered Email</th>
+                
+                  {% for user in users %}
+
+                    <tr>
+                        <td>{{user.first_name}}</td>
+                        <td>{{user.last_name}}</td>
+                        <td>{{user.email}}</td>
+                 
                 </tr>
                 {% endfor %}
-            </table>
-        </section>
-    </body>
-</html>
+                <tr>
+    
+                 
+                </tr>
+              </table>
+
+
+
+            
