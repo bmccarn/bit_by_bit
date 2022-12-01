@@ -91,7 +91,7 @@ def new_note():
         else:
             # GET request - show new note form 
             # retrive user from database
-            a_user = db.session.query(User).filter_by(email='bmccarn2@uncc.edu').one()
+            a_user = db.session.query(User).filter_by(email='test@uncc.edu').one()
             return render_template('new.html', user=session['user'])
     else:
         # user is not in session redirect to login
@@ -119,7 +119,7 @@ def update_note(note_id):
         else:
             # GET request - show new note form to edit note
             # retrieve user from database
-            a_user = db.session.query(User).filter_by(email='bmccarn2@uncc.edu').one()
+            a_user = db.session.query(User).filter_by(email='test@uncc.edu').one()
             
             # retrieve note from database
             my_note = db.session.query(Note).filter_by(id=note_id).one()
@@ -253,6 +253,14 @@ def get_users():
     else:
         return redirect(url_for('login'))
 
+@app.route("/profile", methods = ['POST', 'GET'])
+def profile():
+    # check if a user is saved in session
+    if session.get('user'):
+        a_user = db.session.query(User).filter_by(email='test@uncc.edu').one()
+        return render_template("profile.html", user=a_user.first_name, last=a_user.last_name, email=a_user.email, password=a_user.password)
+    
+    return render_template("profile.html")
 
 
 

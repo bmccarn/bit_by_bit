@@ -19,7 +19,6 @@
         <a href="{{ url_for('get_notes') }}">Current Tasks</a>
         <a href="{{ url_for('new_note') }}">Create Tasks</a>
         <a href="{{ url_for('form') }}">Bug Report</a>
-        <a href="{{ url_for('get_users') }}">Users</a>
       </nav>
 
       {% if user %}
@@ -34,18 +33,13 @@
       </nav>
       {% endif %}
     </header>
-    
+
     <section id="content">
-      <br> 
-
-      <h1>Welcome to the Task Manager App {{user}}!</h1>
-
-      <h2>The Lightweight Task-Tracking Software!</h2>
-
-      <h1><nav><a href="/notes"> Tasks </a></nav></h1>
-
-      <img src="https://th.bing.com/th/id/OIP.7wZ_d306SYR5Mn4rDO3QQQHaHa?pid=ImgDet&rs=1" class="photo" alt="task icon">
-
-</section>
-  </body>
+        <br> 
+        <h1> This is your profile information </h1>
+        <h2>First Name - {{ user }}</h2>
+        <h2>Last Name - {{ last }}</h2>
+        <h2>Email Address - {{ email }} </h2>
+    </section>
+</body>
 </html>
