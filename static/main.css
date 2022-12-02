@@ -173,3 +173,25 @@ header {
     width: 25%;
     height: 25%;
 }
+
+.form {
+    text-align: center;
+    font-family: sans-serif;
+    background-color: #dddfee;
+    border-style: solid;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 10px;
+}
+
+.button {
+    background-color: #181a3a;
+    border-radius: 7px;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+}

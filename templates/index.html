@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="UNCC Notes App" />
+    <script type = "text/javascript" 
+         src = "{{ url_for('static', filename = 'quote_generator.js') }}" ></script>
     <title>UNCC Notes App</title>
     <!-- styles -->
     <link
@@ -41,6 +43,17 @@
       <h1>Welcome to the Task Manager App {{user}}!</h1>
 
       <h2>The Lightweight Task-Tracking Software!</h2>
+
+      <div class="form">
+
+        <p>
+          <input class="button" type="button" onclick="quoteGenerator();"
+              value="Click me for an inspirational quote!">
+        </p>
+        <p id="quoteOutput"></p>
+
+      </div>
+      <br>
 
       <h1><nav><a href="/notes"> Tasks </a></nav></h1>
 
