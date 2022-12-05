@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Title</title>
+    <title>TaskMaster - Register</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='main.css') }}"
@@ -20,8 +20,9 @@
 
       {% if user %}
       <nav>
+        <a href="{{ url_for('profile') }}">Profile</a>
         <a href="{{ url_for('logout') }}">Logout</a>
-        <a href="{{ url_for('profile') }}">Profile</a> 
+         
       </nav>
       {% else %}
       <nav>

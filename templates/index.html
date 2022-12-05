@@ -6,7 +6,7 @@
     <meta name="description" content="UNCC Notes App" />
     <script type = "text/javascript" 
          src = "{{ url_for('static', filename = 'quote_generator.js') }}" ></script>
-    <title>UNCC Notes App</title>
+    <title>TaskMaster</title>
     <!-- styles -->
     <link
       rel="stylesheet"
@@ -26,8 +26,9 @@
 
       {% if user %}
       <nav>
+        <a href="{{ url_for('profile') }}">Profile</a>
         <a href="{{ url_for('logout') }}">Logout</a>
-        <a href="{{ url_for('profile') }}">Profile</a> 
+         
       </nav>
       {% else %}
       <nav>

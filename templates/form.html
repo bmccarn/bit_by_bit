@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="UNCC Notes App" />
-    <title>UNCC Notes App</title>
+    <title>TaskMaster - Bug Report</title>
     <!-- styles -->
     <link
       rel="stylesheet"
@@ -20,8 +20,9 @@
           <a href="{{ url_for('new_note') }}">Create Task</a>
           <a href="{{ url_for('form') }}">Bug Report</a>
           <a href="{{ url_for('get_users') }}">Users</a>
+          <a href="{{ url_for('profile') }}">Profile</a>
           <a href="{{ url_for('logout') }}">Logout</a>
-          <a href="{{ url_for('profile') }}">Profile</a> 
+           
       </nav>
   </header> 
 
@@ -30,12 +31,14 @@
   <br>
 
   <body>
-
-  <form action="/data" method = "POST">
-    <p>Summary <input type = "text" name = "Quick Summary" /></p>
-    <p>Details <input type = "text" name = "Details (optional)" /></p>
-    <p>Contact Info <input type = "text" name = "Contact Information" /></p>
-    <p><input type = "submit" value = "Submit" /></p>
-</form>
-
+    <br>
+    <div class="form">
+      <form action="/data" method = "POST">
+        <br>
+        <p>Summary: <input type = "text" name = "Quick Summary" placeholder="What's wrong?"/></p>
+        <p>Details: <input type = "text" name = "Details (optional)" placeholder="Bug details here..."/></p>
+        <p>Contact Info: <input type = "text" name = "Contact Information" placeholder="123-456-7890" /></p>
+        <p><input type = "submit" value = "Submit" /></p>
+      </form>
+    </div>
 </body>

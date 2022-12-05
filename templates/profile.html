@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="UNCC Notes App" />
-    <title>UNCC Notes App</title>
+    <title>TaskMaster - Profile</title>
     <!-- styles -->
     <link
       rel="stylesheet"
@@ -19,12 +19,13 @@
         <a href="{{ url_for('get_notes') }}">Current Tasks</a>
         <a href="{{ url_for('new_note') }}">Create Tasks</a>
         <a href="{{ url_for('form') }}">Bug Report</a>
+        <a href="{{ url_for('get_users') }}">Users</a>
       </nav>
 
       {% if user %}
       <nav>
+        <a href="{{ url_for('profile') }}">Profile</a>
         <a href="{{ url_for('logout') }}">Logout</a>
-        <a href="{{ url_for('profile') }}">Profile</a> 
       </nav>
       {% else %}
       <nav>
@@ -34,12 +35,19 @@
       {% endif %}
     </header>
 
-    <section id="content">
+    <br>
+    <br> 
+    <br>
+    <br>
+
+    <h1>This is your profile information </h1>
+
+    <section class="form">
         <br> 
-        <h1> This is your profile information </h1>
-        <h2>First Name - {{ user }}</h2>
-        <h2>Last Name - {{ last }}</h2>
-        <h2>Email Address - {{ email }} </h2>
+        
+        <h3>First Name: {{ user }}</h3>
+        <h3>Last Name: {{ last }}</h3>
+        <h3>Email Address: {{ email }} </h3>
     </section>
 </body>
 </html>
