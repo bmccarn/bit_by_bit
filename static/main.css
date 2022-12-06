@@ -19,6 +19,10 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    text-align: center;
+}
+
 form {
     background: white;
     width: 100%;
@@ -195,3 +199,4 @@ header {
     margin: 4px 2px;
     cursor: pointer;
 }
+

@@ -4,9 +4,33 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="UNCC Notes App">
-        <title>UNCC Notes App - View your Notes</title>
+        <title>TaskMaster - Users</title>
         <!-- styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <style>
+            table, th, td {
+
+                text-align: center;
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            
+            th {
+                background-color: #dddfee;
+            }
+            
+            .center {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            
+            
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+        </style>
     </head>
     <body>
         <header id="navbar">
@@ -16,6 +40,7 @@
                 <a href="{{ url_for('new_note') }}">Create Task</a>
                 <a href="{{ url_for('form') }}">Bug Report</a>
                 <a href="{{ url_for('get_users') }}">Users</a>
+                <a href="{{ url_for('profile') }}">Profile</a>
                 <a href="{{ url_for('logout') }}">Logout</a>
                 
             </nav>
@@ -27,8 +52,10 @@
             <br>
 
             <h1>Welcome to the Task Manager App {{user}}!</h1>
+            <br>
+            <h3>Currently Registered Users: </h3>
 
-            <table>
+            <table class="center">
                 <tr>
                   <th>First Name</th>
                   <th>Last Name</th>
@@ -48,6 +75,8 @@
                  
                 </tr>
               </table>
+        </section>   
+    </body>   
 
 
 
