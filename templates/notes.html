@@ -7,6 +7,36 @@
         <title>TaskMaster - View your Notes</title>
         <!-- styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            td, th {
+                border: 1px solid black;
+                padding: 0.5em;
+                text-align: center;
+                
+            }
+            
+            th {
+                text-align: center; 
+                background-color: #dddfee;
+            }
+
+            a {
+                font-weight: bold;
+                font-size: larger;
+                cursor: pointer;
+            }
+            
+            button {
+                cursor: pointer;
+            }
+
+
+        </style>
     </head>
     <body>
         <header id="navbar">
@@ -33,12 +63,13 @@
                 <tr>
                     <th>Title</th>
                     <th>Date</th>
+                    <th colspan="2">Action</th>
                 </tr>
                 {% for note in notes %}
                 <tr>
                     <td><a href="{{ url_for('get_note', note_id=note.id) }}">{{ note.title }}</a></td>
                     <td>{{ note.date }}</td>
-                    <td><a href="{{ url_for('update_note', note_id=note.id) }}">Edit</a></td>
+                    <td><a href="{{ url_for('update_note', note_id=note.id) }}"><button>Edit</button></a></td>
                     <td>
                         <form action="{{ url_for('delete_note', note_id=note.id) }}" method="post">
                             <input type="submit" value="Delete">

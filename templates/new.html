@@ -24,35 +24,34 @@
 
         <section id="content">
             <br>
-
+        
             <h1>Welcome to the Task Manager App {{user}}!</h1>
-
+        
             <div class="form">
-
                 {% if note %}
                     <form action="{{ url_for('update_note', note_id=note.id) }}" method="post">
                 {% else %}
-                <form action="new" method="post">
+                    <form action="new" method="post">
                 {% endif %}
                 <p><h3>Title </h3></p>
-                <p>  <input type="text" name="title" placeholder="Enter title..." value="{% if note %}{{note.title}} {% endif %}"/></p>
-                    <p><h3>Task</h3></p>
-                    <p>
-                        <textarea name="noteText"  rows="6" cols="0">
-                            {% if note %}
-                                {{note.text}}
-                            {% else %}
-                                Please enter task details here...
-                            {% endif %}
-                        </textarea>
-                    </p>
-                    <p>
+                <p>
+                    <input type="text" name="title" placeholder="Enter title..." value="{% if note %}{{note.title}} {% endif %}" />
+                </p>
+                <p><h3>Task</h3></p>
+                <p>
+                    <textarea name="noteText" rows="6" cols="0" placeholder="Please enter task details here...">
                         {% if note %}
-                            <input type="submit" value="Update Note"/>
-                        {% else %}
-                            <input type="submit" value="Add Note"/>
+                            {{note.text}}
                         {% endif %}
-                    </p>
+                    </textarea>
+                </p>
+                <p>
+                    {% if note %}
+                        <input type="submit" value="Update Note" />
+                    {% else %}
+                        <input type="submit" value="Add Note" />
+                    {% endif %}
+                </p>
                 </form>
             </div>
         </section>
