@@ -80,6 +80,7 @@ select:hover {
     background: lightyellow;
 }
 
+
 input[type="text"]:focus,
 input[type="password"]:focus,
 textarea:focus {
@@ -88,7 +89,7 @@ textarea:focus {
     box-shadow: unset;
 }
 
-input[type="submit"] {
+ input[type="submit"] {
     background: rgb(26, 26, 199);
     border: 0;
     color: white;
@@ -99,7 +100,7 @@ input[type="submit"] {
     transition: all .3s ease-out;
 }
 
-input[type="submit"]:hover {
+ input[type="submit"]:hover {
     cursor: pointer;
     background: white;
     color: rgb(26, 26, 199);
@@ -148,6 +149,7 @@ i {
     position: fixed;
     top: 0;
     width: 100%;
+    
 }
 
 #navbar a {

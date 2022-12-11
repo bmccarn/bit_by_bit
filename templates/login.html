@@ -34,10 +34,10 @@
         
             <h1>Welcome {{user}} to TaskMaster!</h1>
 
-            <h2>The Lightweight Task-Tracking Software!</h2>
-            <div class="formwrapper">
+            <h1>The Lightweight Task-Tracking Software!</h1>
+            <div class="formwrapper" style="margin: 0 auto;">
                 <h2 class="title">Login</h2>
-                <form method="POST" action="/login">
+                <form method="POST" action="/login" style="display: block; margin: 0 auto;">
                     <div class="form-field">{{ form.email.label }} {{ form.email }}
                         {% if form.email.errors %}
                         <ul class="errors">

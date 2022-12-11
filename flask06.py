@@ -257,10 +257,14 @@ def get_users():
 def profile():
     # check if a user is saved in session
     if session.get('user'):
-        a_user = db.session.query(User).filter_by(email='test@uncc.edu').one()
-        return render_template("profile.html", user=a_user.first_name, last=a_user.last_name, email=a_user.email, password=a_user.password)
+        # retrieve the logged-in user's information from the database
+        user = db.session.query(User).filter_by(id=session['user_id']).one()
+        
+        # render the profile page and pass the logged-in user's information to it
+        return render_template("profile.html", user=user)
     
-    return render_template("profile.html")
+    # user is not in session, redirect to login
+    return redirect(url_for('login'))
 
 
 
