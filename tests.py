@@ -14,7 +14,7 @@ class FlaskTest(unittest.TestCase):
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
        # self.assertEqual('Title' and 'Date' in response.text, True)
-
+       
     def test_note(self):
         response = requests.get("http://127.0.0.1:5000/notes/1")
         statuscode = response.status_code
@@ -31,6 +31,7 @@ class FlaskTest(unittest.TestCase):
         response = requests.get('http://127.0.0.1:5000/notes/delete')
         statuscode = response.status_code
         self.assertEqual(statuscode, 200)
+        
 
 if __name__ == "__main__":
     unittest.main()
